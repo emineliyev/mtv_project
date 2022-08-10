@@ -1,0 +1,56 @@
+{% load static %}
+<!--*Header*-->
+<header id="inner-navigation">
+
+    <div class="offer text-center">
+        <div class="container">
+            <div class="contact-info pull-left">
+                {% for contact in contacts %}
+                <p><i class="fa fa-phone"></i> Telefon: {{ contact.phone }}</p>
+                <p><i class="fa fa-envelope"></i> Mail: {{ contact.email }}</p>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+
+    <!-- navbar start -->
+    <nav class="navbar navbar-default navbar-fixed-top navbar-sticky-function navbar-arrow">
+
+        <div class="container">
+
+            <div class="logo text-center">
+                {% for logo in logos %}
+                <h1><a class="pad-0" href="{% url 'index' %}"><img src="{{ logo.image.url }}"></a></h1>
+                {% endfor %}
+            </div>
+
+            <div id="navbar" class="navbar-nav-wrapper text-center">
+
+                {% load mptt_tags %}
+                <ul class="nav navbar-nav navbar-right" id="responsive-menu">
+                    <li class="active"><a href="{% url 'index' %}">Əsas səhifə</a></li>
+                    {% recursetree categories %}
+                    <li>
+                        <a href="{% url 'category' category_pk=node.pk %}">
+                            {{ node.name }}
+                            {% if not node.is_leaf_node %}<i class="fa fa-angle-down"></i>{% endif %}
+                        </a>
+                        {% if not node.is_leaf_node %}
+                        <ul>
+                            {{ children }}
+                        </ul>
+                        {% endif %}
+                    </li>
+                    {% endrecursetree %}
+                    <li><a href="contact-us.html">Əlaqə</a></li>
+                    <li><a href="#search" class="mt_search"><i class="fa fa-search"></i></a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+
+        <div id="slicknav-mobile"></div>
+    </nav>
+    <!-- navbar end -->
+</header>
+<!--* End Header*-->

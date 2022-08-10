@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Banner -->
+<div id="mt_banner" class="innerbanner">
+    <div class="container-fluid">
+        <div class="featured-image" style="background-image: url({{ slider.image.url }})"></div>
+        <div class="banner-caption">
+            <div class="banner_caption_text">
+                <div class="post-category">
+                    <ul>
+                        <li class="cat-yellow {% cycle 'cat-blue' 'cat-green' 'cat-pink'  %}"><a href="{% url 'category' slider.category.pk %}" class="white">{{ slider.category }}</a></li>
+                    </ul>
+                </div>
+                <h2>{{ slider.title }}</h2>
+                <div class="item-meta">
+                    <span>by</span>
+                    <a href="">{{ slider.author.first_name }} {{ slider.author.last_name }}</a><br><br>
+                    <time datetime="2018-02-15">{{ slider.create_at|date:"j F Y - H:m" }}</time>
+                    <br>
+                    <p><i class="fa fa-eye" aria-hidden="true"></i> {{ slider.view }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Banner -->
+<!--* Blog Main Sec*-->
+<section id="blog_main_sec" class="section-inner">
+    <div class="container">
+        <!--*Blog Content Sec*-->
+        <div class="blog-detail-main">
+            <p class="">{{ slider.create_at|date:"j F Y" }}</p>
+            <div class="post_body"><p>{{ slider.description|safe }}</p></div>
+
+            <div class="follow_us">
+                <ul class="social_icons">
+                    <li><a href="#"> <i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <div class="tag mar-top-30">
+                <div class="widget-tags-main">
+                    <h5 class="bg-orange">Teqlər:</h5>
+                    {% for tag in slider.tag.all %}
+                    <a href="{% url 'tag' tag_pk=tag.pk %}" class="">{{ tag }}</a>
+                    {% endfor %}
+
+                </div>
+            </div>
+            <!--* End Blog Content Sec*-->
+        </div>
+    </div>
+</section>
+<!--*End Blog Main Sec*-->
+{% endblock %}

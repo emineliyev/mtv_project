@@ -1,0 +1,64 @@
+{% load static %}
+<!--*Footer*-->
+<footer id="mt_footer" class="mt_footer_style1">
+    <div class="container">
+        <div class="mt_footer_col">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="mt_footer_about">
+                        <h2><a href="">Suchana</a></h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="mt_footer_list">
+                        <h3>Keçidlər</h3>
+                        <ul class="footer-quick-links-4">
+                            {% for category in categories %}
+                        {% if category.name == 'Digər' %}
+                        <span></span>
+                        {% else %}
+                        <li><i class="fa fa-angle-right"></i> <a href="{% url 'category' category_pk=category.pk %}">{{ category.name }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="contact-about footer-margin">
+                        <div class="about-logo mar-bottom-20">
+                            {% for logo in logos %}
+                            <img src="{{ logo.image.url }}" alt="Image">
+                            {% endfor %}
+
+                        </div>
+                        {% for contact in contacts %}
+                        <div class="contact-location">
+                            <ul>
+                                <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{ contact.address }}</li>
+                                <li><i class="fa fa-phone"></i> {{ contact.phone }}</li>
+                                <li><i class="fa fa-envelope"></i> {{ contact.email }}</li>
+                            </ul>
+                        </div>
+                        <div class="follow_us">
+                            <ul class="social_icons">
+                                <li><a href="{{ contact.soc_link_1 }}"> <i class="fa {{ contact.soc_icon_1 }}"></i></a></li>
+                                <li><a href="{{ contact.soc_link_2 }}"> <i class="fa {{ contact.soc_icon_2 }}"></i></a></li>
+                                <li><a href="{{ contact.soc_link_3 }}"> <i class="fa {{ contact.soc_icon_3 }}"></i></a></li>
+                                <li><a href="{{ contact.soc_link_4 }}"> <i class="fa {{ contact.soc_icon_4 }}"></i></a></li>
+                            </ul>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <p class="text-center">© Mingəçevri televiziyası: Bütün haqlar qorunur {% now "Y" %}</p>
+</footer>
+<!--* End Footer*-->

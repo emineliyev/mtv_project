@@ -1,0 +1,76 @@
+{% load static %}
+<div class="col-md-3 width30">
+    <div class="sidebar">
+        <!-- widget category -->
+        <div class="widget widget-category">
+            <div class="widget-content">
+                <div class="widget-title">
+                    <h3 class="white">Kateqoriya</h3>
+                </div>
+                <div class="widget-category-main">
+                    <ul class="widget-category-list">
+                        {% for category in categories %}
+                        {% if category.name == 'Digər' %}
+                        <span></span>
+                        {% else %}
+                        <li><a href="{% url 'category' category_pk=category.pk %}">{{ category.name }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- widget popular post -->
+        <div class="widget widget-popular-post">
+            <div class="widget-content">
+                <div class="widget-title">
+                    <h3 class="white">Ən çox oxunanlar</h3>
+                </div>
+                <div class="widget-popular-post-main">
+                    {% for post_view in post_views %}
+                    <div class="widget-posts">
+                        <div class="post-thumb">
+                            <img src="{{ post_view.image.url }}" alt="....." width="64">
+                        </div>
+                        <div class="post-title">
+                            <h6><a href="{% url 'detail' post_pk=post_view.pk %}">{{ post_view.title }}</a></h6>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- widget tags -->
+        <div class="widget widget-tags">
+            <div class="widget-content">
+                <div class="widget-title">
+                    <h3 class="white">Teqlər</h3>
+                </div>
+                <div class="widget-tags-main">
+                    {% for tag in tags %}
+                    <a href="{% url 'tag' tag_pk=tag.pk %}" class="">{{ tag.name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="widget widget-advertisement">
+            <div class="widget-content">
+                <div class="widget-title">
+                    <h3 class="white">Reklam</h3>
+                </div>
+                {% for adv in advertising %}
+                <div class="widget-ads-image text-center">
+                    <a href="{{ adv.customer_url }}" target="_blank"><img src="{{ adv.image.url }}" alt="ads"></a>
+                </div>
+                {% empty %}
+                <h3>Burda sizin reklam ola bilər!</h3>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+</div>

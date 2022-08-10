@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'inc/_slider.html' %}
+
+<!--* Blog*-->
+<section id="mt_blog" class="">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9  width70">
+                <div class="blog_post_sec">
+                    {% for post in posts %}
+                    {% if post.published == True %}
+                    <div class="blog-post_wrapper">
+                        <div class="blog-post-image">
+                            <img src="{{ post.image.url }}" alt="image" class="img-responsive center-block post_img"/>
+                        </div>
+
+                        <div class="post-content">
+                            <div class="post-category">
+                                <ul>
+                                    <li class="cat-yellow {% cycle 'cat-blue' 'cat-green' 'cat-pink'  %}"><a href="{% url 'category' post.category.pk %}"
+                                                                 class="white">{{ post.category }}</a></li>
+
+                                </ul>
+                            </div>
+
+                            <div class="post-date">
+                                <p>{{ post.create_at|date:"j F Y - H:m" }}</p>
+                            </div>
+
+                            <h2 class="entry-title">
+                                <a href="{% url 'detail' post_pk=post.pk %}" class="">{{ post.title }}</a>
+                            </h2>
+                            <div class="item-meta">
+
+                                <h5 class="author-name">
+                                    <span>by</span> _ {{ post.author.first_name }} {{ post.author.last_name }}
+                                </h5>
+                                <p><i class="fa fa-eye" aria-hidden="true"></i> {{ post.view }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% include 'inc/_pagination.html' %}
+                </div>
+            </div>
+            {% include 'inc/_aside.html' %}
+
+        </div>
+    </div>
+</section>
+<!--* End Blog*-->
+
+{% endblock %}

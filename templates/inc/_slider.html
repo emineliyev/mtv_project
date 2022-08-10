@@ -1,0 +1,30 @@
+{% load static %}
+<!-- Slider -->
+<section id="mt_banner" class="single-slider">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            {% for slider in sliders %}
+            <div class="swiper-slide">
+                <div class="slide-inner" style="background-image:url({{ slider.image.url }})"></div>
+                <div class="banner_caption_text">
+                    <div class="post-category">
+                        <ul>
+                            <li class="cat-yellow"><a href="" class="white">{{ slider.category }}</a></li>
+                        </ul>
+                    </div>
+                    <h2><a href="{% url 'slider_detail' slider_pk=slider.pk %}">{{ slider.title }}</a></h2>
+                    <div class="item-meta">
+
+                        <h5 class="white"><span class="white">by _ </span> {{ slider.author.first_name }} {{ slider.author.last_name }}</h5>
+                        <p class="white"><i class="fa fa-eye" aria-hidden="true"></i> {{ slider.view }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="swiper-button-next swiper-button-"></div>
+        <div class="swiper-button-prev swiper-button-"></div>
+    </div>
+</section>
+<!-- End Slider -->

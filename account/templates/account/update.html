@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Scraping: Ayarlar{% endblock %}
+{% block content %}
+<section class="position-relative py-4 py-xl-5">
+    <div class="container">
+        <p>Bu səhifədə istifadəçiyə aid məlumatları yeniləyə bilərsiniz.</p>
+        <h3 class="text-secondary mb-5">Ayarlar</h3>
+        <div class="row d-flex justify-content-center">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="mb-3">
+                    <button class="btn btn-success d-block" type="submit">Yadda saxla</button>
+                </div>
+            </form>
+        </div>
+
+        <h3 class="text-secondary mb-2">Şəhər və ya kateqoriyanın əlavə edilməsi.</h3>
+        <p>Əgər servisdə Sizə lazım olan şəhər və ya kateqoriya tapmadınızsa aşağıdakı
+            formu doldurun. Ən qısa zamanda Sizə lazım olan məlumatları əlavə edib, qeyd etdiyiz email
+            ünvanına bildiriş göndərəcəyik.</p>
+
+        <p>
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button"
+               aria-expanded="false" aria-controls="collapseExample">
+                Formu göstər
+            </a>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <div class="row d-flex justify-content-center">
+                    <form method="post" action="{% url 'contact' %}">
+                        {% csrf_token %}
+                        {{ contact_form.as_p }}
+                        <div class="mb-3">
+                            <button class="btn btn-success d-block" type="submit">Göndər</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock %}
