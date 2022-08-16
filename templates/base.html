@@ -11,7 +11,7 @@
     <meta name="description"
           content="Suchana is an online blog, news & magazine dedicated to different categories html template">
 
-    <title>Suchana - Blog, News & Magazine HTML Template</title>
+    <title>{% block title %}Mtv: Əsas səhifə{% endblock %}</title>
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
 
@@ -42,30 +42,7 @@
 
 {% include 'inc/_nav.html' %}
 
-
 {% block content %} {% endblock %}
-
-<!--<div class="mt_instagram">-->
-<!--    <div class="container">-->
-<!--        <div class="row">-->
-<!--            <div class="col-sm-2 col-xs-6"><a href="#"><img src="{% static 'images/insta/insta_01.jpg' %}" alt="Image"></a></div>-->
-<!--            <div class="col-sm-2 col-xs-6"><a href="#"><img src="{% static 'images/insta/insta_02.jpg' %}" alt="Image"></a></div>-->
-<!--            <div class="col-sm-2 col-xs-6"><a href="#"><img src="{% static 'images/insta/insta_03.jpg' %}" alt="Image"></a></div>-->
-<!--            <div class="col-sm-2 col-xs-6"><a href="#"><img src="{% static 'images/insta/insta_04.jpg' %}" alt="Image"></a></div>-->
-<!--            <div class="col-sm-2 col-xs-6"><a href="#"><img src="{% static 'images/insta/insta_05.jpg' %}" alt="Image"></a></div>-->
-<!--            <div class="col-sm-2 col-xs-6"><a href="#"><img src="{% static 'images/insta/insta_06.jpg' %}" alt="Image"></a></div>-->
-<!--            <div class="col-sm-2 col-xs-6"><a href="#"><img src="{% static 'images/insta/insta_07.jpg' %}" alt="Image"></a></div>-->
-<!--            <div class="col-sm-2 col-xs-6"><a href="#"><img src="{% static 'images/insta/insta_08.jpg' %}" alt="Image"></a></div>-->
-<!--            <div class="col-sm-2 col-xs-6"><a href="#"><img src="{% static 'images/insta/insta_09.jpg' %}" alt="Image"></a></div>-->
-<!--            <div class="col-sm-2 col-xs-6"><a href="#"><img src="{% static 'images/insta/insta_10.jpg' %}" alt="Image"></a></div>-->
-<!--            <div class="col-sm-2 col-xs-6"><a href="#"><img src="{% static 'images/insta/insta_11.jpg' %}" alt="Image"></a></div>-->
-<!--            <div class="col-sm-2 col-xs-6"><a href="#"><img src="{% static 'images/insta/insta_12.jpg' %}" alt="Image"></a></div>-->
-<!--        </div>-->
-<!--        <div class="sectio-title">-->
-<!--            <h3 class="mar-0"><a href="#">Follow @ Instagram</a></h3>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
 
 {% include 'inc/_footer.html' %}
 
@@ -77,9 +54,9 @@
 <!-- search popup -->
 <div id="search">
     <button type="button" class="close">×</button>
-    <form>
-        <input type="search" value="" placeholder="type keyword(s) here"/>
-        <button type="submit" class="btn btn-primary">Search</button>
+    <form action="{% url 'index' %}" method="get">
+        <input type="search" value="" name="s" placeholder="Axtardığınız sözü bura yazın"/>
+        <button type="submit" class="btn btn-primary">Axtar</button>
     </form>
 </div>
 

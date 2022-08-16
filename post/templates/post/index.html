@@ -11,7 +11,7 @@
             <div class="col-md-9  width70">
                 <div class="blog_post_sec">
                     {% for post in posts %}
-                    {% if post.published == True %}
+
                     <div class="blog-post_wrapper">
                         <div class="blog-post-image">
                             <img src="{{ post.image.url }}" alt="image" class="img-responsive center-block post_img"/>
@@ -42,7 +42,7 @@
                             </div>
                         </div>
                     </div>
-                    {% endif %}
+
                     {% endfor %}
                     {% include 'inc/_pagination.html' %}
                 </div>

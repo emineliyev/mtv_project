@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block title %}Mtv: {{ post.title }}{% endblock %}
 {% load static %}
 {% block content %}
 <!-- Banner -->
@@ -9,13 +10,15 @@
             <div class="banner_caption_text">
                 <div class="post-category">
                     <ul>
-                        <li class="cat-yellow {% cycle 'cat-blue' 'cat-green' 'cat-pink'  %}"><a href="{% url 'category' post.category.pk %}" class="white">{{ post.category }}</a></li>
+                        <li class="cat-yellow {% cycle 'cat-blue' 'cat-green' 'cat-pink'  %}"><a
+                                href="{% url 'category' post.category.pk %}" class="white">{{ post.category }}</a></li>
                     </ul>
                 </div>
                 <h2>{{ post.title }}</h2>
                 <div class="item-meta">
-                    <span>by</span>
-                    <a href="">{{ post.author.first_name }} {{ post.author.last_name }}</a><br><br>
+                    <h5 class="author-name">
+                        <span>by</span> _ {{ post.author.first_name }} {{ post.author.last_name }}
+                    </h5>
                     <time datetime="2018-02-15">{{ post.create_at|date:"j F Y - H:m" }}</time>
                     <br>
                     <p><i class="fa fa-eye" aria-hidden="true"></i> {{ post.view }}</p>

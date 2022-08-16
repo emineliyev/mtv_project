@@ -27,7 +27,7 @@ class PostAdmin(admin.ModelAdmin):
         'create_at',
         'published',
     )
-    list_filter = ('published', )
+    list_filter = ('published', 'category')
     search_fields = ('title', )
     list_editable = ('published', )
     save_on_top = True
