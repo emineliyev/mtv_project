@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["mtvaz.herokuapp.com", "mtvaz.herokuapp.com/ckeditor/browse/?CKEditor=id_description&CKEditorFuncNum=3&langCode=az"]
+ALLOWED_HOSTS = ["mtvaz.herokuapp.com", "mtvaz.herokuapp.com/uploads/"]
 
 # Application definition
 
