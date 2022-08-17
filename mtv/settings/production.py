@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_cleanup',
+    'cloudinary',
     'ckeditor',
     'ckeditor_uploader',
     'post.apps.PostConfig',
