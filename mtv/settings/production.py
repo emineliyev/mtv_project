@@ -153,7 +153,6 @@ CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'hnqnt01z9',
     'API_KEY': '191527525617399',
     'API_SECRET': '1jRwLZpONdOlZLhDrBDqp4lUdNA',
-    'CKEDITOR_UPLOAD_PATH': 'uploads/'
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
