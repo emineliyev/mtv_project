@@ -6,7 +6,6 @@ from mptt.admin import DraggableMPTTAdmin
 from .models import Post, Category, Tag, Comment
 
 
-
 class PostAdminForm(forms.ModelForm):
     description = forms.CharField(widget=CKEditorUploadingWidget())
 

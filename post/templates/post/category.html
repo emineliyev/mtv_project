@@ -28,7 +28,7 @@
                             </div>
 
                             <h2 class="entry-title">
-                                <a href="{% url 'detail' post_pk=post.pk %}" class="">{{ post.title }}</a>
+                                <a href="{% url 'detail' post_pk=post.pk %}" class="" target="_blank">{{ post.title }}</a>
                             </h2>
                             <div class="item-meta">
                                 <span>by</span>
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     {% empty %}
-                    <h3>Hazırda bu kateqoriya üzrə xəbərlər mövcud deyil!</h3>
+                    <h3>Hazırda bu kateqoriya üzrə xəbər yoxdu!</h3>
                     {% endfor %}
                     {% include 'inc/_pagination.html' %}
                 </div>

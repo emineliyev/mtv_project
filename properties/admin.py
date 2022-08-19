@@ -23,6 +23,7 @@ class AdvertisingAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'customer')
     list_filter = ('published', )
     search_fields = ('customer', )
+    list_editable = ('published',)
 
     def get_photo(self, obj):
         return mark_safe(f'<img src="{obj.image.url}" width="50"')
