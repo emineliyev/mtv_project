@@ -9,10 +9,10 @@
                 <div class="banner_caption_text">
                     <div class="post-category">
                         <ul>
-                            <li class="cat-yellow"><a href="" class="white">{{ slider.category }}</a></li>
+                            <li class="cat-yellow {% cycle 'cat-blue' 'cat-green' 'cat-pink'  %}"><a href="" class="white">{{ slider.category }}</a></li>
                         </ul>
                     </div>
-                    <h2><a href="{% url 'slider_detail' slider_pk=slider.pk %}">{{ slider.title }}</a></h2>
+                    <h2><a href="{% url 'slider_detail' slider_pk=slider.pk %}" class="white">{{ slider.title }}</a></h2>
                     <div class="item-meta">
 
                         <h5 class="white"><span class="white">by _ </span> {{ slider.author.first_name }} {{ slider.author.last_name }}</h5>

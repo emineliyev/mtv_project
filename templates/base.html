@@ -51,8 +51,8 @@
 <!-- search popup -->
 <div id="search">
     <button type="button" class="close">×</button>
-    <form action="{% url 'index' %}" method="get">
-        <input type="search" value="" name="s" placeholder="Axtardığınız sözü bura yazın"/>
+    <form action="{% url 'search' %}" method="get">
+        <input name="s" type="search" value="" placeholder="Axtardığınız sözü yazın"/>
         <button type="submit" class="btn btn-primary">Axtar</button>
     </form>
 </div>

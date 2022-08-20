@@ -49,6 +49,7 @@ def slider_detail(request, slider_pk):
     slider = Slider.objects.get(pk=slider_pk)
     categories = Category.objects.all()
     tags = Tag.objects.all()
+    logos = Logo.objects.all()[:1]
     slider.view = slider.view + 1
     slider.save()
     contacts = Contacts.objects.all()
@@ -56,6 +57,7 @@ def slider_detail(request, slider_pk):
         'slider': slider,
         'categories': categories,
         'tags': tags,
+        'logos': logos,
         'contacts': contacts
     }
     return render(request, 'post/slider_detail.html', context=context)
@@ -74,6 +76,7 @@ class GetCategory(ListView):
         context['tags'] = Tag.objects.all()
         context['contacts'] = Contacts.objects.all()
         context['advertising'] = Advertising.objects.all()[:2]
+        context['logos'] = Logo.objects.all()[:1]
         return context
 
     def get_queryset(self):
@@ -93,6 +96,7 @@ class GetTag(ListView):
         context['tags'] = Tag.objects.all()
         context['contacts'] = Contacts.objects.all()
         context['advertising'] = Advertising.objects.all()[:2]
+        context['logos'] = Logo.objects.all()[:1]
         return context
 
     def get_queryset(self):
@@ -102,13 +106,20 @@ class GetTag(ListView):
 class Search(ListView):
     template_name = 'post/search.html'
     context_object_name = 'posts'
-    paginate_by = 1
+    paginate_by = 10
 
     def get_queryset(self):
         return Post.objects.filter(title__icontains=self.request.GET.get('s'))
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        context['tags'] = Tag.objects.all()
+        context['sliders'] = Slider.objects.all().filter(published=True)[:3]
+        context['post_views'] = Post.objects.filter(view__gt=100).order_by('-view')[:5]
+        context['advertising'] = Advertising.objects.all()[:2]
+        context['contacts'] = Contacts.objects.all()
+        context['logos'] = Logo.objects.all()[:1]
         return context
 
 

@@ -6,10 +6,12 @@
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="mt_footer_about">
-                        <h2><a href="">Suchana</a></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        </p>
+                        <h2><a href="{% url 'index' %}">MTV</a></h2>
+                        <p>Mtv.az saytının yaradılmasında məqsəd dünyada və ölkədə baş verən ən vacib və maraqlı
+                            xəbərləri geniş auditoriyaya təqdim etməkdir.</p>
+                        <p>Mtv.az 24 saat ərzində, ölkədə və dünyada baş verən ən aktual və maraqlı hadisələr barədə
+                            operativ xəbərlər, oxucuları və cəmiyyəti maraqlandıran suallara cavablar, analitik
+                            məqalələr, foto və videohesabatlar hazırlayır.</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12">
@@ -17,12 +19,13 @@
                         <h3>Keçidlər</h3>
                         <ul class="footer-quick-links-4">
                             {% for category in categories %}
-                        {% if category.name == 'Digər' %}
-                        <span></span>
-                        {% else %}
-                        <li><i class="fa fa-angle-right"></i> <a href="{% url 'category' category_pk=category.pk %}">{{ category.name }}</a></li>
-                        {% endif %}
-                        {% endfor %}
+                            {% if category.name == 'Digər' %}
+                            <span></span>
+                            {% else %}
+                            <li><i class="fa fa-angle-right"></i> <a
+                                    href="{% url 'category' category_pk=category.pk %}">{{ category.name }}</a></li>
+                            {% endif %}
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
@@ -45,10 +48,14 @@
                         </div>
                         <div class="follow_us">
                             <ul class="social_icons">
-                                <li><a href="{{ contact.soc_link_1 }}"> <i class="fa {{ contact.soc_icon_1 }}"></i></a></li>
-                                <li><a href="{{ contact.soc_link_2 }}"> <i class="fa {{ contact.soc_icon_2 }}"></i></a></li>
-                                <li><a href="{{ contact.soc_link_3 }}"> <i class="fa {{ contact.soc_icon_3 }}"></i></a></li>
-                                <li><a href="{{ contact.soc_link_4 }}"> <i class="fa {{ contact.soc_icon_4 }}"></i></a></li>
+                                <li><a href="{{ contact.soc_link_1 }}"> <i class="fa {{ contact.soc_icon_1 }}"></i></a>
+                                </li>
+                                <li><a href="{{ contact.soc_link_2 }}"> <i class="fa {{ contact.soc_icon_2 }}"></i></a>
+                                </li>
+                                <li><a href="{{ contact.soc_link_3 }}"> <i class="fa {{ contact.soc_icon_3 }}"></i></a>
+                                </li>
+                                <li><a href="{{ contact.soc_link_4 }}"> <i class="fa {{ contact.soc_icon_4 }}"></i></a>
+                                </li>
                             </ul>
                         </div>
                         {% endfor %}
