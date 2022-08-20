@@ -20,8 +20,9 @@
                         <div class="post-content">
                             <div class="post-category">
                                 <ul>
-                                    <li class="cat-yellow {% cycle 'cat-blue' 'cat-green' 'cat-pink'  %}"><a href="{% url 'category' post.category.pk %}"
-                                                                 class="white">{{ post.category }}</a></li>
+                                    <li class="cat-yellow {% cycle 'cat-blue' 'cat-green' 'cat-pink'  %}"><a
+                                            href="{% url 'category' post.category.pk %}"
+                                            class="white">{{ post.category }}</a></li>
 
                                 </ul>
                             </div>
@@ -31,7 +32,8 @@
                             </div>
 
                             <h2 class="entry-title">
-                                <a href="{% url 'detail' post_pk=post.pk %}" class="" target="_blank">{{ post.title }}</a>
+                                <a href="{% url 'detail' post_pk=post.pk %}" class="" target="_blank">
+                                    {{ post.title }}</a>
                             </h2>
                             <div class="item-meta">
 
@@ -42,8 +44,20 @@
                             </div>
                         </div>
                     </div>
-
+                    {% empty %}
+                    <!-- Error -->
+                    <section class="error bg-navy">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3 class="text-center white">Axtarışınız üzrə nəticə tapılmadı</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Error Ends -->
                     {% endfor %}
+
                     {% include 'inc/_pagination.html' %}
                 </div>
             </div>

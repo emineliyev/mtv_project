@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'inc/_slider.html' %}
+
+<!-- Error -->
+<section class="error bg-navy">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="error-content text-center">
+                    <div class="error-box">
+                        <div class="error-box-inner">
+                            <h1 class="white">403</h1>
+                        </div>
+                    </div>
+                    <h2 class="page-title white">Xəta 403. Giriş rədd edildi!</h2>
+                    <p class="white mar-0">Əsas səhifəyə qayıtmaq üçün <a href="{% url 'index' %}">Əsas səhifə</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Error Ends -->
+
+{% endblock %}
